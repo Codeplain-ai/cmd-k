@@ -1,0 +1,54 @@
+---
+description: 'Cmd + K in Plain (Python version)'
+import:
+  - python-console-app-template
+---
+
+***definitions***
+
+- :CmdK: is an :App: command line tool that generates bash commands from human language.
+
+- :Claude: is a LLM that generates bash commands from human language.
+
+- :ClaudeAPIKey: is an API key for the :Claude: API.
+
+- :User: is the user of the :CmdK: application.
+
+***technical specs***
+
+- :ClaudeAPIKey: is read from CLAUDE_API_KEY environment variable.
+
+- Documentation for :Claude: is available at [anthropic-docs.md](docs/anthropic-docs.md).
+  - You should use "claude-sonnet-4-5-20250929" as the model for :Claude:.
+
+- :CmdK: should use `rich` library for styling the :App:. Docs for `rich` are available at [rich-docs.md](docs/rich-docs.md).
+
+- Use `requirements.txt` file to install the dependencies for :CmdK:.
+
+- :MainExecutableFile: should be called "cmd_k.py"
+
+***test specs***
+
+- :CmdK: should be tested by executing :CmdK: as Python subprocess.
+
+- It should be assumed that :ClaudeAPIKey: is available in the environment variables and valid.
+
+***functional specs***
+
+- Implement :CmdK: command that generates bash commands from human language. This command should be called "plan".
+  - Human language is passed as an argument to the command.
+
+  ***acceptance tests***
+
+  - Call "plan" command with the following prompt: "Print current working directory". Expect the output to be "pwd".
+
+- Implement :CmdK: command that generates and executes bash commands. This command should be called "run".
+  - Human language is passed as an argument to the command.
+  - :CmdK: should first call "plan" functionality to generate the bash command and display the command to :User:.
+  - :User: should then either confirm or reject the command.
+  - If :User: confirms the command, :CmdK: should execute the command.
+  - If :User: rejects the command, :CmdK: should exit with an error message.
+
+  ***acceptance tests***
+
+  - Call "run" command with the following prompt: "Print current working directory". Expect the output to be start with "/Users".
