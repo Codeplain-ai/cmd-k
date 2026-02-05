@@ -21,10 +21,6 @@ import:
 - Documentation for :Claude: is available at [anthropic-docs.md](docs/anthropic-docs.md).
   - You should use "claude-sonnet-4-5-20250929" as the model for :Claude:.
 
-- :App: should use `rich` library for styling.
-  - Docs for `rich` are available at [rich-docs.md](docs/rich-docs.md).
-  - Styling guidelines are available at [styling-guidelines.md](docs/styling-guidelines.md).
-
 - Use `requirements.txt` file to install the dependencies for :App:.
 
 - :MainExecutableFile: should be called "cmd_k.py"
