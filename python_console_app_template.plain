@@ -15,6 +15,8 @@
 
 ***test reqs***
 
+- :App: should be tested by executing :App: as Python subprocess.
+
 - :ConformanceTests: of :App: should be implemented in Python using Unittest framework. :ConformanceTests: will be run using "python -m unittest discover" command. Therefore, if :ConformanceTests: are put in the subfolder, make sure to include __init__.py to make them discoverable. 
 
 - :ConformanceTests: must be implemented and executed - do not use unittest.skip() or “any other test skipping functionality.
