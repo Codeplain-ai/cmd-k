@@ -15,6 +15,12 @@ if [ "${VERBOSE:-}" -eq 1 ] 2>/dev/null; then
   printf "Preparing Python build subfolder: $PYTHON_BUILD_SUBFOLDER\n"
 fi
 
+# if there's no CLAUDE_API_KEY environment variable, exit with 69
+if [ -z "$CLAUDE_API_KEY" ]; then
+  echo "Error: CLAUDE_API_KEY environment variable is not set."
+  exit $UNRECOVERABLE_ERROR_EXIT_CODE
+fi
+
 # Check if the Python build subfolder exists
 if [ -d "$PYTHON_BUILD_SUBFOLDER" ]; then
   # Find and delete all files and folders

@@ -16,6 +16,12 @@ if [ -z "$2" ]; then
   exit $UNRECOVERABLE_ERROR_EXIT_CODE
 fi
 
+# if there's no CLAUDE_API_KEY environment variable, exit with 69
+if [ -z "$CLAUDE_API_KEY" ]; then
+  echo "Error: CLAUDE_API_KEY environment variable is not set."
+  exit $UNRECOVERABLE_ERROR_EXIT_CODE
+fi
+
 current_dir=$(pwd)
 echo "Current directory: $current_dir"
 echo "Build folder name: $current_dir/$1"
