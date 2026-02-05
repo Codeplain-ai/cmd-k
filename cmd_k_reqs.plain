@@ -1,7 +1,7 @@
 ---
 description: 'Cmd + K in Plain (Python version)'
 import:
-  - python-console-app-template
+  - python_console_app_template
 ---
 
 ***definitions***
@@ -32,7 +32,5 @@ import:
 - The name of the :App: is "Cmd+K". When styling the :App:, you should only refer to it as "Cmd+K".
 
 ***test reqs***
-
-- :App: should be tested by executing :App: as Python subprocess.
 
 - It should be assumed that :ClaudeAPIKey: is available in the environment variables and valid.
