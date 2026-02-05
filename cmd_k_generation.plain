@@ -6,18 +6,4 @@ import:
 
 ***functional specs***
 
-- :App: should have a "plan" <:NaturalLanguageInput:> command that generates bash commands from human language.
-
-  ***acceptance tests***
-
-  - Call "plan" "Print current working directory". Expect the output to be "pwd".
-
-- :App: should have a "run" <:NaturalLanguageInput:> command that generates and executes bash commands.
-  - :App: should first call "plan" functionality to generate the bash command and display the command to :User:.
-  - :User: should then either confirm or reject the command.
-  - If :User: confirms the command, :App: should execute the command.
-  - If :User: rejects the command, :App: should exit with an error message.
-
-  ***acceptance tests***
-
-  - Call "run" "Print current working directory". Expect the output to be start with "/Users".
+- TODO
