@@ -14,7 +14,7 @@ import:
 
 - :NaturalLanguageInput: is the input to the :App: in natural language.
 
-***technical specs***
+***implementation reqs***
 
 - :ClaudeAPIKey: is read from CLAUDE_API_KEY environment variable.
 
@@ -31,7 +31,7 @@ import:
 
 - The name of the :App: is "Cmd+K". When styling the :App:, you should only refer to it as "Cmd+K".
 
-***test specs***
+***test reqs***
 
 - :App: should be tested by executing :App: as Python subprocess.
 

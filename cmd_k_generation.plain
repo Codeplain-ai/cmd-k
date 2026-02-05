@@ -1,7 +1,7 @@
 ---
 description: 'Cmd + K in Plain (Python version)'
 import:
-  - cmd_k_nfrs
+  - cmd_k_reqs
 ---
 
 ***functional specs***

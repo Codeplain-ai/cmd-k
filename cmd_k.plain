@@ -1,7 +1,7 @@
 ---
 description: 'Cmd + K in Plain (Python version)'
 import:
-  - cmd_k_nfrs
+  - cmd_k_reqs
 requires:
   - cmd_k_generation
 ---
@@ -10,7 +10,7 @@ requires:
 
 - :PersonalizationFile: is a file that stores :NaturalLanguageInput: for the :App:.
 
-***technical specs***
+***implementation reqs***
 
 - :PersonalizationFile: should be called ".personalization.json" and should be stored in ~/.cache/cmd_k/personalization.json.
   - If :PersonalizationFile: does not exist, it should be created.
