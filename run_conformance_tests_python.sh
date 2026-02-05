@@ -16,19 +16,25 @@ if [ -z "$2" ]; then
   exit $UNRECOVERABLE_ERROR_EXIT_CODE
 fi
 
+# Try to find Python interpreter (python3 first, then python)
+if command -v python3 &> /dev/null; then
+    PYTHON_CMD="python3"
+elif command -v python &> /dev/null; then
+    PYTHON_CMD="python"
+else
+    printf "Error: Python interpreter not found. Please install Python.\n"
+    exit $UNRECOVERABLE_ERROR_EXIT_CODE
+fi
+
+current_dir=$(pwd)
+
+PYTHON_BUILD_SUBFOLDER=".tmp/$1"
+
 # if there's no CLAUDE_API_KEY environment variable, exit with 69
 if [ -z "$CLAUDE_API_KEY" ]; then
   echo "Error: CLAUDE_API_KEY environment variable is not set."
   exit $UNRECOVERABLE_ERROR_EXIT_CODE
 fi
-
-current_dir=$(pwd)
-echo "Current directory: $current_dir"
-echo "Build folder name: $current_dir/$1"
-echo "Conformance tests folder name: $current_dir/$2"
-echo "--------------------------------"
-
-PYTHON_BUILD_SUBFOLDER=python_$1
 
 if [ "${VERBOSE:-}" -eq 1 ] 2>/dev/null; then
   printf "Preparing Python build subfolder: $PYTHON_BUILD_SUBFOLDER\n"
@@ -61,7 +67,7 @@ if [ $? -ne 0 ]; then
 fi
 
 # Create and activate virtual environment
-python3.14 -m venv .venv
+$PYTHON_CMD -m venv .venv
 source .venv/bin/activate
 
 # Install requirements if requirements.txt exists
@@ -75,9 +81,9 @@ else
 fi
 
 # Execute all Python conformance tests in the build folder
-printf "Running Python conformance tests in the conformance tests folder...\n\n"
+printf "Running Python conformance tests...\n\n"
 
-output=$(python -m unittest discover -b -s "$current_dir/$2" 2>&1)
+output=$($PYTHON_CMD -m unittest discover -b -s "$current_dir/$2" 2>&1)
 exit_code=$?
 
 # Echo the original output
