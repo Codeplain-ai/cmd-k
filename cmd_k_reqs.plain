@@ -31,6 +31,8 @@ import:
 
 - The name of the :App: is "Cmd+K". When styling the :App:, you should only refer to it as "Cmd+K".
 
+- :App: should have `--help` option that displays the help message.
+
 ***test reqs***
 
 - It should be assumed that :ClaudeAPIKey: is available in the environment variables and valid.
