@@ -3,6 +3,7 @@
 
 python_plain_modules/
 conformance_tests/
+.tmp/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
